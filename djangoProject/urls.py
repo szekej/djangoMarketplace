@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import index, contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', view=index, name='index'),
+    path('contact/', view=contact, name='contact_name'),
 ]
