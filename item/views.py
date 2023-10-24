@@ -9,6 +9,15 @@ from item.models import Item
 
 # Create your views here.
 
+
+def browse(request):
+    items = Item.objects.filter(is_sold=False)
+
+    return render(request, 'browse.html', context={
+        'items': items,
+    })
+
+
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[:3]
