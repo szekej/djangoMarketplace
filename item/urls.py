@@ -8,9 +8,9 @@ from django.conf.urls.static import static
 app_name = 'item'
 
 urlpatterns = [
-    path('<int:pk>/', detail, name='detail'),
-    path('new_item/', new, name='new'),
     path('', browse, name='browse'),
+    path('new_item/', new, name='new'),
+    path('<int:pk>/', detail, name='detail'),
     path('<int:pk>/delete/', delete, name='delete'),
     path('<int:pk>/edit/', edit, name='edit'),
 
